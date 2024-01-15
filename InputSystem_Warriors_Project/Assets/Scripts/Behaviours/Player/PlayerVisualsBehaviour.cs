@@ -38,6 +38,9 @@ public class PlayerVisualsBehaviour : MonoBehaviour
 
     public void UpdatePlayerVisuals()
     {
+        if (playerInput == null)
+            return;
+        
         UpdateUIDisplay();
         UpdateCharacterShader();
     }
