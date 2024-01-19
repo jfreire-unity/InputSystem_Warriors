@@ -22,6 +22,8 @@ public class GameManager : Singleton<GameManager>
     //Local Multiplayer
     public GameObject playerPrefab;
     public int numberOfPlayers;
+    static int s_CurrentPlayerId;
+    PlayerInputManager playerInputManager;
 
     public Transform spawnRingCenter;
     public float spawnRingRadius;
@@ -36,6 +38,7 @@ public class GameManager : Singleton<GameManager>
 
         isPaused = false;
 
+        playerInputManager = GetComponent<PlayerInputManager>();
         SetupBasedOnGameState();
         SetupUI();
     }
@@ -73,11 +76,14 @@ public class GameManager : Singleton<GameManager>
         if(inScenePlayer == true)
         {
             Destroy(inScenePlayer);
+            PlayerController.s_GlobalPlayerCounter = 0;
         }
-
-        SpawnPlayers();
-
-        SetupActivePlayers();
+        
+        playerInputManager.enabled = true;
+        
+        activePlayerControllers = new List<PlayerController>();
+        
+        // Wait for players to join when new devices are detected and a button is pressed.
     }
 
     void SpawnPlayers()
@@ -87,17 +93,19 @@ public class GameManager : Singleton<GameManager>
 
         for(int i = 0; i < numberOfPlayers; i++)
         {
-            Vector3 spawnPosition = CalculatePositionInRing(i, numberOfPlayers);
+            Vector3 spawnPosition = CalculatePositionInRing();
             Quaternion spawnRotation = CalculateRotation();
-
+        
             GameObject spawnedPlayer = Instantiate(playerPrefab, spawnPosition, spawnRotation) as GameObject;
+            
             AddPlayerToActivePlayerList(spawnedPlayer.GetComponent<PlayerController>());
         }
     }
 
-    void AddPlayerToActivePlayerList(PlayerController newPlayer)
+    public void AddPlayerToActivePlayerList(PlayerController newPlayer)
     {
-        activePlayerControllers.Add(newPlayer);
+        if(activePlayerControllers != null)
+            activePlayerControllers.Add(newPlayer);
     }
 
     void SetupActivePlayers()
@@ -206,18 +214,19 @@ public class GameManager : Singleton<GameManager>
 
     //Spawn Utilities
 
-    Vector3 CalculatePositionInRing(int positionID, int numberOfPlayers)
+    public Vector3 CalculatePositionInRing()
     {
         if(numberOfPlayers == 1)
             return spawnRingCenter.position;
 
-        float angle = (positionID) * Mathf.PI * 2 / numberOfPlayers;
+        float angle = (s_CurrentPlayerId++) * Mathf.PI * 2 / numberOfPlayers;
         float x = Mathf.Cos(angle) * spawnRingRadius;
         float z = Mathf.Sin(angle) * spawnRingRadius;
+        
         return spawnRingCenter.position +  new Vector3(x, 0, z);
     }
 
-    Quaternion CalculateRotation()
+    public Quaternion CalculateRotation()
     {
         return Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
     }

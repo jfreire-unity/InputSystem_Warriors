@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
 
     //Player ID
+    public static int s_GlobalPlayerCounter;
     private int playerID;
 
     [Header("Sub Behaviours")]
@@ -29,6 +31,14 @@ public class PlayerController : MonoBehaviour
     //Current Control Scheme
     private string currentControlScheme;
 
+    void Start()
+    {
+        // Set initial poisition 
+        transform.position = GameManager.Instance.CalculatePositionInRing();
+        transform.rotation = GameManager.Instance.CalculateRotation();
+        GameManager.Instance.AddPlayerToActivePlayerList(this);
+        SetupPlayer(s_GlobalPlayerCounter++);
+    }
 
     //This is called from the GameManager; when the game is being setup.
     public void SetupPlayer(int newPlayerID)
@@ -36,6 +46,8 @@ public class PlayerController : MonoBehaviour
         playerID = newPlayerID;
 
         currentControlScheme = playerInput.currentControlScheme;
+        
+        Debug.Log("currentControlScheme: " + currentControlScheme);
 
         playerMovementBehaviour.SetupBehaviour();
         playerAnimationBehaviour.SetupBehaviour();
@@ -73,16 +85,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
-
-
     //INPUT SYSTEM AUTOMATIC CALLBACKS --------------
 
     //This is automatically called from PlayerInput, when the input device has changed
     //(IE: Keyboard -> Xbox Controller)
     public void OnControlsChanged()
     {
+        Debug.Log($"player {playerID} input devices: " + playerInput.devices.Count );
 
         if(playerInput.currentControlScheme != currentControlScheme)
         {
@@ -114,11 +123,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         playerVisualsBehaviour.UpdatePlayerVisuals();
     }
-
-
-
-
-
 
     //Update Loop - Used for calculating frame-based data
     void Update()
