@@ -35,9 +35,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-
         isPaused = false;
-
         playerInputManager = GetComponent<PlayerInputManager>();
         SetupBasedOnGameState();
         SetupUI();

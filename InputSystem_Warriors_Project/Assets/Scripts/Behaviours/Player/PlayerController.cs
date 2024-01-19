@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,11 +34,14 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Set initial poisition 
-        transform.position = GameManager.Instance.CalculatePositionInRing();
-        transform.rotation = GameManager.Instance.CalculateRotation();
-        GameManager.Instance.AddPlayerToActivePlayerList(this);
-        SetupPlayer(s_GlobalPlayerCounter++);
+        if (GameManager.Instance.currentGameMode == GameMode.LocalMultiplayer)
+        {
+            // Set initial position 
+            transform.position = GameManager.Instance.CalculatePositionInRing();
+            transform.rotation = GameManager.Instance.CalculateRotation();
+            GameManager.Instance.AddPlayerToActivePlayerList(this);
+            SetupPlayer(s_GlobalPlayerCounter++);
+        }
     }
 
     //This is called from the GameManager; when the game is being setup.
