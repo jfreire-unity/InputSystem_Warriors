@@ -25,12 +25,22 @@ public class DeviceDisplayConfigurator : ScriptableObject
     public DisconnectedSettings disconnectedDeviceSettings;
 
     private Color fallbackDisplayColor = Color.white;
+    
+    static string GetCurrentDeviceRawPath(PlayerInput playerInput)
+    {
+        string currentDeviceRawPath = "";
 
+        if (playerInput != null && playerInput.devices.Count > 0)
+        { 
+            currentDeviceRawPath= playerInput.devices[0].ToString(); 
+        }
+
+        return currentDeviceRawPath;
+    }
 
     public string GetDeviceName(PlayerInput playerInput)
     {
-
-        string currentDeviceRawPath = playerInput.devices[0].ToString();
+        var currentDeviceRawPath = GetCurrentDeviceRawPath(playerInput);
 
         string newDisplayName = null;
 
@@ -49,14 +59,11 @@ public class DeviceDisplayConfigurator : ScriptableObject
         }
 
         return newDisplayName;
-
     }
-
     
     public Color GetDeviceColor(PlayerInput playerInput)
-    {  
-
-        string currentDeviceRawPath = playerInput.devices[0].ToString();
+    {
+        string currentDeviceRawPath = GetCurrentDeviceRawPath(playerInput);
         
         Color newDisplayColor = fallbackDisplayColor;
 
