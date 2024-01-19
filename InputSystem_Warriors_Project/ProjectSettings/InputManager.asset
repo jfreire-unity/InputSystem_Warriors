@@ -140,6 +140,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: 8691642189724865101}
   m_ActionId: 2776c80d-3c14-4091-8c56-d04ced07a2b0
+--- !u!114 &-874657021965134517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: UI/TogglePause
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 8691642189724865101}
+  m_ActionId: dc2d1906-06db-427c-a2d7-96b09a098a79
 --- !u!13 &1
 InputManager:
   m_ObjectHideFlags: 0
@@ -640,6 +654,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: 8691642189724865101}
   m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
+--- !u!114 &1004827719760455060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/Attack
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 8691642189724865101}
+  m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
 --- !u!114 &2397957404041722240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,20 +710,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: 8691642189724865101}
   m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
---- !u!114 &4190164246062810340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: Player/Attac
-  m_EditorClassIdentifier: 
-  m_Asset: {fileID: 8691642189724865101}
-  m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
 --- !u!114 &4687510524465510293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +724,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: 8691642189724865101}
   m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
+--- !u!114 &5121166651129146537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/TogglePause
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 8691642189724865101}
+  m_ActionId: f96a21a5-6f1b-4018-8304-5c16ff21ecac
 --- !u!114 &6317490275154437960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +827,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 1
-    - m_Name: Attac
+    - m_Name: Attack
       m_Type: 1
       m_ExpectedControlType: Button
       m_Id: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
@@ -851,6 +879,14 @@ MonoBehaviour:
       m_Type: 1
       m_ExpectedControlType: Button
       m_Id: 641cd816-40e6-41b4-8c3d-04687c349290
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: TogglePause
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: f96a21a5-6f1b-4018-8304-5c16ff21ecac
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -982,7 +1018,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: ;Gamepad
-      m_Action: Attac
+      m_Action: Attack
       m_Flags: 0
     - m_Name: 
       m_Id: 05f6913d-c316-48b2-a6bb-e225f14c7960
@@ -990,7 +1026,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: ;Keyboard&Mouse
-      m_Action: Attac
+      m_Action: Attack
       m_Flags: 0
     - m_Name: 
       m_Id: 886e731e-7071-4ae4-95c0-e61739dad6fd
@@ -998,7 +1034,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: ;Touch
-      m_Action: Attac
+      m_Action: Attack
       m_Flags: 0
     - m_Name: 
       m_Id: ee3d0cd2-254e-47a7-a8cb-bc94d9658c54
@@ -1006,7 +1042,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: Joystick
-      m_Action: Attac
+      m_Action: Attack
       m_Flags: 0
     - m_Name: 
       m_Id: 8255d333-5683-4943-a58a-ccb207ff1dce
@@ -1014,7 +1050,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: XR
-      m_Action: Attac
+      m_Action: Attack
       m_Flags: 0
     - m_Name: 
       m_Id: b3c1c7f0-bd20-4ee7-a0f1-899b24bca6d7
@@ -1022,7 +1058,7 @@ MonoBehaviour:
       m_Interactions: 
       m_Processors: 
       m_Groups: Keyboard&Mouse
-      m_Action: Attac
+      m_Action: Attack
       m_Flags: 0
     - m_Name: 
       m_Id: cbac6039-9c09-46a1-b5f2-4e5124ccb5ed
@@ -1136,6 +1172,22 @@ MonoBehaviour:
       m_Groups: Keyboard&Mouse
       m_Action: Crouch
       m_Flags: 0
+    - m_Name: 
+      m_Id: d8f3884e-0d0f-4cb0-b28e-e18186e69e92
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: TogglePause
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 41daac12-06c5-4021-9f38-6f3f068e6b85
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: TogglePause
+      m_Flags: 0
   - m_Name: UI
     m_Id: 272f6d14-89ba-496f-b7ff-215263d3219f
     m_Asset: {fileID: 8691642189724865101}
@@ -1216,6 +1268,14 @@ MonoBehaviour:
       m_Type: 2
       m_ExpectedControlType: Quaternion
       m_Id: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: TogglePause
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: dc2d1906-06db-427c-a2d7-96b09a098a79
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -1524,6 +1584,22 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: XR
       m_Action: TrackedDeviceOrientation
+      m_Flags: 0
+    - m_Name: 
+      m_Id: b9035233-0760-4125-a56b-47f002093c37
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: TogglePause
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 1dfe1e84-b802-477d-99dd-d29f048f4f50
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: TogglePause
       m_Flags: 0
   m_ControlSchemes:
   - m_Name: Keyboard&Mouse
