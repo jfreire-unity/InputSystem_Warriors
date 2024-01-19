@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 smoothInputMovement;
     
     //Action Maps
-    private string actionMapPlayerControls = "Player Controls";
-    private string actionMapMenuControls = "Menu Controls";
+    private string actionMapPlayerControls = "Player";
+    private string actionMapMenuControls = "UI";
 
     //Current Control Scheme
     private string currentControlScheme;
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //This is called from Player Input, when a button has been pushed, that correspons with the 'TogglePause' action
+    //This is called from Player Input, when a button has been pushed, that corresponsd with the 'TogglePause' action
     public void OnTogglePause(InputAction.CallbackContext value)
     {
         if(value.started)
