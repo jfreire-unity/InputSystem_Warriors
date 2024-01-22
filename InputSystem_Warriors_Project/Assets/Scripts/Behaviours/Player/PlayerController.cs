@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -74,7 +71,7 @@ public class PlayerController : MonoBehaviour
     //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Attack' action
     public void OnAttack(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if(value.started && !playerAnimationBehaviour.attackInProgress)
         {
             playerAnimationBehaviour.PlayAttackAnimation();
         }
@@ -108,9 +105,6 @@ public class PlayerController : MonoBehaviour
 
     //This is automatically called from PlayerInput, when the input device has been disconnected and can not be identified
     //IE: Device unplugged or has run out of batteries
-
-
-
     public void OnDeviceLost()
     {
         playerVisualsBehaviour.SetDisconnectedDeviceVisuals();
@@ -137,13 +131,15 @@ public class PlayerController : MonoBehaviour
     }
 
     //Input's Axes values are raw
-
-
     void CalculateMovementInputSmoothing()
     {
-        
-        smoothInputMovement = Vector3.Lerp(smoothInputMovement, rawInputMovement, Time.deltaTime * movementSmoothingSpeed);
-
+        // Break smoothly once we're attacking
+        var rawInputMovementCached = rawInputMovement;
+        if (playerAnimationBehaviour.attackInProgress)
+        {
+            rawInputMovementCached = Vector3.zero;
+        }
+        smoothInputMovement = Vector3.Lerp(smoothInputMovement, rawInputMovementCached, Time.deltaTime * movementSmoothingSpeed);
     }
 
     void UpdatePlayerMovement()

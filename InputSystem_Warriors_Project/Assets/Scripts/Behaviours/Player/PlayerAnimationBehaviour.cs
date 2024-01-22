@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ public class PlayerAnimationBehaviour : MonoBehaviour
     //Animation String IDs
     private int playerMovementAnimationID;
     private int playerAttackAnimationID;
+    
+    [NonSerialized]
+    public bool attackInProgress;
 
     public void SetupBehaviour()
     {
@@ -31,6 +35,10 @@ public class PlayerAnimationBehaviour : MonoBehaviour
     {
         playerAnimator.SetTrigger(playerAttackAnimationID);
     }
-
-
+    
+    void AttackInProgress(int value)
+    {
+        attackInProgress = value == 1;
+        Debug.Log("Attack in progress: " + attackInProgress);
+    }
 }
