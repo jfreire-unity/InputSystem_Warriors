@@ -422,6 +422,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dc2d1906-06db-427c-a2d7-96b09a098a79
     m_ActionName: 'UI/TogglePause[/Keyboard/p,/DualSenseGamepadHID/start]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1743518200311987065}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnExtendedAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9e1b802d-22b0-4fb4-8e5d-653fe426c611
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -506,7 +522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 1743518200311987066}
-  movementSpeed: 5
+  walkMovementSpeed: 5
+  runMovementSpeed: 7
   turnSpeed: 0.1
 --- !u!1 &1743518200780429236
 GameObject:

@@ -24,10 +24,12 @@ public class PlayerController : MonoBehaviour
     
     //Action Maps
     private string actionMapPlayerControls = "Player";
-    private string actionMapMenuControls = "UI";
+    private string actionMapMenuControls = "UI";    
 
     //Current Control Scheme
     private string currentControlScheme;
+    private bool isExtendedActionInProgress;
+    private bool isMovementInProgress;
 
     void Start()
     {
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
         rawInputMovement = new Vector3(inputMovement.x, 0, inputMovement.y);
+        isMovementInProgress = value.performed == true;
     }
 
     //This is called from PlayerInput, when a button has been pushed, that corresponds with the 'Attack' action
@@ -84,6 +87,14 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.Instance.TogglePauseState(this);
         }
+    }
+    
+    // Ideally this could be used to set other "composite" or "extended" actions like run, stronger attack, etc.
+    // For now only run is implemented.
+    public void OnExtendedAction(InputAction.CallbackContext value)
+    {
+        isExtendedActionInProgress = value.performed == true;
+        playerMovementBehaviour.SetRunMovement(isMovementInProgress && isExtendedActionInProgress);
     }
 
     //INPUT SYSTEM AUTOMATIC CALLBACKS --------------

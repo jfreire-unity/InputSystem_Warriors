@@ -9,8 +9,10 @@ public class PlayerMovementBehaviour : MonoBehaviour
     public Rigidbody playerRigidbody;
 
     [Header("Movement Settings")]
-    public float movementSpeed = 3f;
+    public float walkMovementSpeed = 3f;
+    public float runMovementSpeed = 3f;
     public float turnSpeed = 0.1f;
+    private float movementSpeed = 3f;
 
 
     //Stored Values
@@ -23,6 +25,11 @@ public class PlayerMovementBehaviour : MonoBehaviour
         SetGameplayCamera();
     }
 
+    public void SetRunMovement(bool enabled)
+    {
+        movementSpeed = enabled ? runMovementSpeed : walkMovementSpeed;
+    }
+
     void SetGameplayCamera()
     {
         mainCamera = CameraManager.Instance.GetGameplayCamera();
@@ -32,6 +39,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
     {
         movementDirection = newMovementDirection;
     }
+    
+    
 
     void FixedUpdate()
     {

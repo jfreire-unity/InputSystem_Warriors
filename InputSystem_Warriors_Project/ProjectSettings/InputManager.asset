@@ -766,6 +766,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: 8691642189724865101}
   m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
+--- !u!114 &6572882105854442039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
+  m_Name: Player/ExtendedAction
+  m_EditorClassIdentifier: 
+  m_Asset: {fileID: 8691642189724865101}
+  m_ActionId: 9e1b802d-22b0-4fb4-8e5d-653fe426c611
 --- !u!114 &8341173570627356078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,6 +901,14 @@ MonoBehaviour:
       m_Type: 1
       m_ExpectedControlType: Button
       m_Id: f96a21a5-6f1b-4018-8304-5c16ff21ecac
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    - m_Name: ExtendedAction
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 9e1b802d-22b0-4fb4-8e5d-653fe426c611
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -1187,6 +1209,22 @@ MonoBehaviour:
       m_Processors: 
       m_Groups: 
       m_Action: TogglePause
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 1c2df7f1-9079-4546-a431-94cb2a2f0962
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: ExtendedAction
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 301f2410-7093-4b35-b3d0-8c5bcebdf369
+      m_Path: <Gamepad>/rightShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Gamepad
+      m_Action: ExtendedAction
       m_Flags: 0
   - m_Name: UI
     m_Id: 272f6d14-89ba-496f-b7ff-215263d3219f
